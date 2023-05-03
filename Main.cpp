@@ -20,16 +20,16 @@ int main(int argc, char* args[])
 
     SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
-    bool IsOpen = false;
+    bool IsOpen = true;
 
     Uint32 lastTime = SDL_GetTicks();
     float deltaTime;
 
     Entity player(renderer);
-    float playerSpeed = 5.f;
-    float playerMaxSpeed = 5.f;
+    float playerSpeed = 4.f;
+    float playerMaxSpeed = 4.f;
 
-    while (!IsOpen)
+    while (IsOpen)
     {
         SDL_Event event;
         Uint32 currentTime = SDL_GetTicks();
@@ -41,10 +41,7 @@ int main(int argc, char* args[])
             switch (event.type)
             {
             case SDL_QUIT:
-                IsOpen = true;
-                break;
-            case SDL_KEYDOWN:
-
+                IsOpen = false;
                 break;
             }
         }
